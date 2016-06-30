@@ -1,26 +1,26 @@
 var combatList = [];
-combatList.push({GUID: guid(), Name: "Bellagar", HP: 14, Initiative: 5, IMG: "https://pixabay.com/static/uploads/photo/2015/08/31/17/00/sword-915735_960_720.png", Effects: [{Name: "Disoriented", Duration: 1}]});
-combatList.push({GUID: guid(), Name: "Mathias", HP: 12, Initiative: 3, IMG: "", Effects: []});
-combatList.push({GUID: guid(), Name: "DelSordaCool", HP: 25, Initiative: 7, IMG: "", Effects: []});
-combatList.push({GUID: guid(), Name: "Makayla", HP: 20, Initiative: 7, IMG: "", Effects: []});
-combatList.push({GUID: guid(), Name: "Auldous", HP: 20, Initiative: 7, IMG: "", Effects: []});
-combatList.push({GUID: guid(), Name: "Stephanie", HP: 20, Initiative: 7, IMG: "", Effects: []});
+combatList.push({GUID: guid(), Name: "Bellagar", Class: "Warrior", Type: "Friendly", HP: 14, MaxHP: 14, Initiative: 5, IMG: "https://pixabay.com/static/uploads/photo/2015/08/31/17/00/sword-915735_960_720.png", Effects: [{Name: "Disoriented", Duration: 1}]});
+combatList.push({GUID: guid(), Name: "Mathias", Class: "Brute", Type: "Friendly", HP: 12, MaxHP: 12, Initiative: 3, IMG: "", Effects: []});
+combatList.push({GUID: guid(), Name: "DelSordaCool", Class: "Sorcerer", Type: "Friendly", HP: 25, MaxHP: 25, Initiative: 7, IMG: "", Effects: []});
+combatList.push({GUID: guid(), Name: "Makayla", Class: "Shaman", Type: "Friendly", HP: 20, MaxHP: 20, Initiative: 7, IMG: "", Effects: []});
+combatList.push({GUID: guid(), Name: "Auldous", Class: "Archer", Type: "Friendly", HP: 20, MaxHP: 20, Initiative: 7, IMG: "", Effects: []});
+combatList.push({GUID: guid(), Name: "Stephanie", Class: "Cleric", Type: "Friendly", HP: 20, MaxHP: 20, Initiative: 7, IMG: "", Effects: []});
 
 var explorationList = [];
-explorationList.push({GUID: guid(), Name: "Bellagar", HP: 11, Initiative: 5, IMG: "https://pixabay.com/static/uploads/photo/2015/08/31/17/00/sword-915735_960_720.png", Effects: [{Name: "Disoriented", Duration: 1}]});
-explorationList.push({GUID: guid(), Name: "Mathias", HP: 11, Initiative: 3, IMG: "", Effects: []});
-explorationList.push({GUID: guid(), Name: "DelSordaCool", HP: 21, Initiative: 7, IMG: "", Effects: []});
-explorationList.push({GUID: guid(), Name: "Makayla", HP: 21, Initiative: 7, IMG: "", Effects: []});
-explorationList.push({GUID: guid(), Name: "Auldous", HP: 21, Initiative: 7, IMG: "", Effects: []});
-explorationList.push({GUID: guid(), Name: "Stephanie", HP: 21, Initiative: 7, IMG: "", Effects: []});
+explorationList.push({GUID: guid(), Name: "Bellagar", Class: "Thief", Type: "Friendly", HP: 11, MaxHP: 11, Initiative: 5, IMG: "https://pixabay.com/static/uploads/photo/2015/08/31/17/00/sword-915735_960_720.png", Effects: [{Name: "Disoriented", Duration: 1}]});
+explorationList.push({GUID: guid(), Name: "Mathias", Class: "Hunter", Type: "Friendly", HP: 11, MaxHP: 11, Initiative: 3, IMG: "", Effects: []});
+explorationList.push({GUID: guid(), Name: "DelSordaCool", Class: "Delver", Type: "Friendly", HP: 21, MaxHP: 21, Initiative: 7, IMG: "", Effects: []});
+explorationList.push({GUID: guid(), Name: "Makayla", Class: "Witch", Type: "Friendly", HP: 21, MaxHP: 21, Initiative: 7, IMG: "", Effects: []});
+explorationList.push({GUID: guid(), Name: "Auldous", Class: "Mechanist", Type: "Friendly", HP: 21, MaxHP: 21, Initiative: 7, IMG: "", Effects: []});
+explorationList.push({GUID: guid(), Name: "Stephanie", Class: "Pilgrim", Type: "Friendly", HP: 21, MaxHP: 21, Initiative: 7, IMG: "", Effects: []});
 
 var interactionList = [];
-interactionList.push({GUID: guid(), Name: "Bellagar", HP: 12, Initiative: 5, IMG: "https://pixabay.com/static/uploads/photo/2015/08/31/17/00/sword-915735_960_720.png", Effects: [{Name: "Disoriented", Duration: 1}]});
-interactionList.push({GUID: guid(), Name: "Mathias", HP: 12, Initiative: 3, IMG: "", Effects: []});
-interactionList.push({GUID: guid(), Name: "DelSordaCool", HP: 22, Initiative: 7, IMG: "", Effects: []});
-interactionList.push({GUID: guid(), Name: "Makayla", HP: 22, Initiative: 7, IMG: "", Effects: []});
-interactionList.push({GUID: guid(), Name: "Auldous", HP: 22, Initiative: 7, IMG: "", Effects: []});
-interactionList.push({GUID: guid(), Name: "Stephanie", HP: 22, Initiative: 7, IMG: "", Effects: []});
+interactionList.push({GUID: guid(), Name: "Bellagar", Class: "Bodyguard", Type: "Friendly", HP: 12, MaxHP: 12, Initiative: 5, IMG: "https://pixabay.com/static/uploads/photo/2015/08/31/17/00/sword-915735_960_720.png", Effects: [{Name: "Disoriented", Duration: 1}]});
+interactionList.push({GUID: guid(), Name: "Mathias", Class: "Occultist", Type: "Friendly", HP: 12, MaxHP: 12, Initiative: 3, IMG: "", Effects: []});
+interactionList.push({GUID: guid(), Name: "DelSordaCool", Class: "Warrior", Type: "Friendly", HP: 22, MaxHP: 22, Initiative: 7, IMG: "", Effects: []});
+interactionList.push({GUID: guid(), Name: "Makayla", Class: "Merchant", Type: "Friendly", HP: 22, MaxHP: 22, Initiative: 7, IMG: "", Effects: []});
+interactionList.push({GUID: guid(), Name: "Auldous", Class: "Warrior", Type: "Friendly", HP: 22, MaxHP: 22, Initiative: 7, IMG: "", Effects: []});
+interactionList.push({GUID: guid(), Name: "Stephanie", Class: "Warrior", Type: "Friendly", HP: 22, MaxHP: 22, Initiative: 7, IMG: "", Effects: []});
 
 
 var entityList = [];
@@ -57,6 +57,29 @@ function guid() {
       s4() + '-' + s4() + s4() + s4();
 }
 
+$('#adjustHpModal').on('show.bs.modal', function (event) {
+	var trigger = $(event.relatedTarget) // Button that triggered the modal
+	// We are editing an existing character
+	if(trigger.data('charid'))
+	{
+		var position = entityList.indexOfField("GUID", trigger.data('charid'))
+		if(trigger.data('adjustment') == "heal")
+		{
+			$("#adjustHpType").val("heal");
+			$("#hpAdjustmentLabel").text("Heal " + entityList[position].Name + " for: ");
+		}
+		else
+		{
+			$("#adjustHpType").val("damage");
+			$("#hpAdjustmentLabel").text("Damage " + entityList[position].Name + " for: ");
+		}
+			
+		
+		$("#adjustHpGUID").val(entityList[position].GUID)
+		$("#hpAdjustment").val(0);
+	}
+});
+
 $('#editEntityModal').on('show.bs.modal', function (event) {
   var trigger = $(event.relatedTarget) // Button that triggered the modal
   // We are editing an existing character
@@ -64,14 +87,19 @@ $('#editEntityModal').on('show.bs.modal', function (event) {
   {
 	  // Find entry in array
 	  var position = entityList.indexOfField("GUID", trigger.data('charid'))
-	  console.log(entityList[position])
 	  if(position != -1)
 	  {
 		$("#entityName").val(entityList[position].Name)
-		$("#entityHP").val(entityList[position].HP)
+		$("#entityHP").val(entityList[position].MaxHP)
+		$("#entityClass").val(entityList[position].Class)
 		$("#entityInit").val(entityList[position].Initiative)
 		$("#entityImage").val(entityList[position].IMG)
 		$("#entityGUID").val(entityList[position].GUID)
+		var type = []
+		type.push(entityList[position].Type)
+		$('input[name=entityType]').val(type)
+		$('input[name=entityType]').parent().removeClass("active");
+		$('input[name=entityType]:checked').parent().addClass("active");
 	  }
 	  else
 	  {
@@ -84,15 +112,39 @@ $('#editEntityModal').on('show.bs.modal', function (event) {
 		entityList.push({GUID: id, Name: "", HP: 0, Initiative: 0, IMG: "", Effects: []});
 		$("#entityName").val("")
 		$("#entityHP").val("")
+		$("#entityClass").val("")
 		$("#entityInit").val("")
 		$("#entityImage").val("")
+		var type = []
+		$('input[name=entityType]').val(type)
 		$("#entityGUID").val(id)
   }
-  console.log(trigger.data('charid'));
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
   var modal = $(this)
 })
+
+$("#saveHPModalChanges").click(function() {
+	var position = entityList.indexOfField("GUID", $("#adjustHpGUID").val())
+		if(position != -1)
+		{
+			if($("#adjustHpType").val() == "heal")
+			{
+				entityList[position].HP = parseInt(entityList[position].HP) + parseInt($("#hpAdjustment").val());
+				if(parseInt(entityList[position].HP) > parseInt(entityList[position].MaxHP))
+					entityList[position].HP = parseInt(entityList[position].MaxHP);
+			}
+			else
+			{
+				entityList[position].HP = parseInt(entityList[position].HP) - parseInt($("#hpAdjustment").val());
+				if(entityList[position].HP < 0)
+					entityList[position].HP = 0;
+			}
+			
+		}
+		drawEntityList();
+		$('#adjustHpModal').modal('hide')
+});
 
 // Update items
 $("#saveModalChanges").click(function(){
@@ -101,8 +153,12 @@ $("#saveModalChanges").click(function(){
 		{
 			entityList[position].Name = $("#entityName").val()
 			entityList[position].HP = $("#entityHP").val()
+			entityList[position].MaxHP = $("#entityHP").val()
+			entityList[position].Class = $("#entityClass").val()
 			entityList[position].Initiative = $("#entityInit").val()
 			entityList[position].IMG = $("#entityImage").val()
+			console.log("value = " + $('input[name=entityType]:checked').val())
+			entityList[position].Type = $('input[name=entityType]:checked').val()
 		}
 		drawEntityList();
 		$('#editEntityModal').modal('hide')
@@ -110,13 +166,12 @@ $("#saveModalChanges").click(function(){
 
 function removeEntity(entity)
 {
-  if(confirm("Yar, this character be dead and gone then?"))
-  {
-  var position = entityList.indexOfField("GUID", $(entity).data("charid"))
-  entityList.splice(position, 1);
-  drawEntityList();
-    
-  }
+	if(confirm("Yar, this character be dead and gone then?"))
+	{
+		var position = entityList.indexOfField("GUID", $(entity).data("charid"))
+		entityList.splice(position, 1);
+		drawEntityList();
+	}
 }
 
 function drawEntityList()
@@ -129,19 +184,23 @@ function drawEntityList()
 			return true;
 		$char = $("#characterBlockToClone").clone();
 		
-		// update image
 		$char.find("img").attr("src", val.IMG);
-		
-		// update name 
 		$char.find(".character-name").text(val.Name).data("charid", val.GUID);
+		$char.find(".character-init").text(val.Initiative);
+		$char.find(".character-hp").text(val.HP);
+		$char.find(".character-class").text(val.Class);
+		if(val.Type == "Friendly")
+			$char.find(".character-name").addClass("btn btn-primary btn-lg");
+		else if(val.Type == "Neutral")
+			$char.find(".character-name").addClass("btn btn-warning btn-lg");
+		else
+			$char.find(".character-name").addClass("btn btn-danger btn-lg");
+		
 		
 		$char.find(".removeButton").data("charid", val.GUID);
-		
-		// update init 
-		$char.find(".character-init").text(val.Initiative);
-		
-		// update hp
-		$char.find(".character-hp").text(val.HP);
+		$char.find(".healButton").data("charid", val.GUID);
+		$char.find(".damageButton").data("charid", val.GUID);
+		//btn btn-primary btn-lg
 		
 		var effectsText = ""
 		// update effects

@@ -60,23 +60,39 @@
         </div>
 
 
-        <div class="media characterBlock" id="characterBlockToClone" style="display:none;">
-            <div class="pull-left">
-                <img class="media-object" src="" data-holder-rendered="true" style="width: 64px; height: 64px;">
-            </div>
-            <div class="media-body">
-				<div class="row">
-					<div class="col-xs-11 pull-left">
-						<h4 class="media-heading"><a href="#" data-toggle="modal" data-target="#editEntityModal" data-charid="" class="character-name"></a></h4>
+        <div class="media characterBlock " id="characterBlockToClone" style="display:none;">
+			<div class="panel panel-default activeCharacterBlock">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-1">
+							<img src="" data-holder-rendered="true" class="characterImage">
+						</div>
+						<div  class="col-sm-9" style="padding-left: 15px;">
+							<a href="#" data-toggle="modal" data-target="#editEntityModal" data-charid="" class="character-name" role="button"></a> 
+							<span class="label label-info"><span class="character-class"></span></span>
+							<p>Init: <span class="character-init"></span></p>
+							<p>Cur HP: <span class="character-hp"></span></p>
+							<p style="display:none;">Effects: <span class="character-effects"></span></p>
+						</div>
+							
+						<div class="col-sm-2">
+							<div class="btn-group-vertical hidden-xs" role="group" aria-label="...">
+							  <button class="btn btn-warning damageButton" data-toggle="modal" data-adjustment="damage" data-target="#adjustHpModal"><i class="fa fa-bolt" aria-hidden="true"></i> Damage</button>
+							  <button class="btn btn-info healButton" data-toggle="modal" data-adjustment="heal" data-target="#adjustHpModal"><i class="fa fa-medkit" aria-hidden="true"></i> Heal</button>
+							  <button class="btn btn-success delayButton" onclick="" style="display:none;"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Delay</button>
+							  <button class="btn btn-danger removeButton" onclick="removeEntity(this)"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+							</div>
+							<div class="btn-group visible-xs" role="group" aria-label="...">
+							  <button class="btn btn-warning damageButton" data-toggle="modal" data-adjustment="damage" data-target="#adjustHpModal"><i class="fa fa-bolt" aria-hidden="true"></i> Damage</button>
+							  <button class="btn btn-info healButton" data-toggle="modal" data-adjustment="heal" data-target="#adjustHpModal"><i class="fa fa-medkit" aria-hidden="true"></i> Heal</button>
+							  <button class="btn btn-success delayButton" onclick=""style="display:none;"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Delay</button>
+							  <button class="btn btn-danger removeButton" onclick="removeEntity(this)"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+							</div>
+						
+						</div>
 					</div>
-					<div class="col-xs-1 pull-right"><button class="btn btn-danger removeButton" onclick="removeEntity(this)">X</button></div>
 				</div>
-				<div>
-                <p>Init: <span class="character-init"></span></p>
-                <p>HP: <span class="character-hp"></span></p>
-                <p>Effects: <span class="character-effects"></span></p>
-				</div>
-            </div>
+			</div>
         </div>
 
 		<div class="modal fade" id="editEntityModal" tabindex="-1" role="dialog">
@@ -93,17 +109,32 @@
 					<input type="text" class="form-control" id="entityName">
 				  </div>
 				  <div class="form-group">
+					<label for="entityName" class="control-label">Class:</label>
+					<input type="text" class="form-control" id="entityClass">
+				  </div>
+				  <div class="form-group">
 					<label for="entityInit" class="control-label">Initiative:</label>
 					<input type="text" class="form-control" id="entityInit">
 				  </div>
 				  <div class="form-group">
-					<label for="entityHP" class="control-label">HP:</label>
+					<label for="entityHP" class="control-label">Max HP:</label>
 					<input type="text" class="form-control" id="entityHP">
 				  </div>
 				  <div class="form-group">
 					<label for="entityImage" class="control-label">Image URL:</label>
 					<input type="text" class="form-control" id="entityImage">
 				  </div>
+				  <div class="btn-group" data-toggle="buttons">
+					  <label class="btn btn-primary active">
+						<input type="radio" name="entityType" id="Friendly" value="Friendly" autocomplete="off" checked> Friendly
+					  </label>
+					  <label class="btn btn-danger">
+						<input type="radio" name="entityType" id="Enemy" value="Enemy" autocomplete="off"> Enemy
+					  </label>
+					  <label class="btn btn-warning">
+						<input type="radio" name="entityType" id="Neutral" value="Neutral" autocomplete="off"> Neutral
+					  </label>
+					</div>
 				</form>
 			  </div>
 			  <div class="modal-footer">
@@ -114,6 +145,33 @@
 			</div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+		
+		<div class="modal fade" id="adjustHpModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Adjust HP</h4>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<label for="hpAdjustment" class="control-label" id="hpAdjustmentLabel"></label>
+					<input type="text" class="form-control" id="hpAdjustment">
+				  </div>
+				  
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<input type="hidden" class="form-control" id="adjustHpType">
+				<input type="hidden" class="form-control" id="adjustHpGUID">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="saveHPModalChanges">Save changes</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
 		
         <hr>
 

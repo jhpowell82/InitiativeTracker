@@ -3,3 +3,41 @@ body {
     padding-bottom: 20px;
 }
 
+.btn-primary
+{
+	color:#ddd;
+}
+.btn-warning
+{
+	color:#ddd;
+}
+.btn-danger
+{
+	color:#ddd;
+}
+.btn-success
+{
+	color:#ddd;
+}
+.btn-info
+{
+	color:#ddd;
+}
+
+.panel-default
+{
+	background-color: lightgrey;
+}
+
+.activeCharacterBlock
+{
+	background-color: white;
+}
+
+.characterImage {
+    display: block;
+    max-width: 64px;
+    height: 64x;
+    margin: 0 auto;
+}
+
