@@ -188,6 +188,14 @@ function drawEntityList()
 		$char.find(".character-name").text(val.Name).data("charid", val.GUID);
 		$char.find(".character-init").text(val.Initiative);
 		$char.find(".character-hp").text(val.HP);
+		
+		if(val.HP > (val.MaxHP / 2))
+			$char.find(".character-hp").parent().addClass("btn-success");
+		else if(val.HP < (val.MaxHP / 2))
+			$char.find(".character-hp").parent().addClass("btn-warning");
+		else
+			$char.find(".character-hp").parent().addClass("btn-danger");
+		
 		$char.find(".character-class").text(val.Class);
 		if(val.Type == "Friendly")
 			$char.find(".character-name").addClass("btn btn-primary btn-lg");

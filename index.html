@@ -69,20 +69,21 @@
 						</div>
 						<div  class="col-sm-9" style="padding-left: 15px;">
 							<a href="#" data-toggle="modal" data-target="#editEntityModal" data-charid="" class="character-name" role="button"></a> 
-							<span class="label label-info"><span class="character-class"></span></span>
-							<p>Init: <span class="character-init"></span></p>
-							<p>Cur HP: <span class="character-hp"></span></p>
+							<span class="label label-info"><span class="character-class"></span> </span>
+							
+							<button class="btn btn-info" type="button" onclick="return false;">
+							  Init <span class="character-init"></span>
+							</button>
+							
+							<button class="btn" type="button" onclick="return false;">
+							  HP <span class="badge character-hp"></span>
+							</button>
 							<p style="display:none;">Effects: <span class="character-effects"></span></p>
 						</div>
-							
-						<div class="col-sm-2">
-							<div class="btn-group-vertical hidden-xs" role="group" aria-label="...">
-							  <button class="btn btn-warning damageButton" data-toggle="modal" data-adjustment="damage" data-target="#adjustHpModal"><i class="fa fa-bolt" aria-hidden="true"></i> Damage</button>
-							  <button class="btn btn-info healButton" data-toggle="modal" data-adjustment="heal" data-target="#adjustHpModal"><i class="fa fa-medkit" aria-hidden="true"></i> Heal</button>
-							  <button class="btn btn-success delayButton" onclick="" style="display:none;"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Delay</button>
-							  <button class="btn btn-danger removeButton" onclick="removeEntity(this)"><i class="fa fa-times" aria-hidden="true"></i> Remove</button>
-							</div>
-							<div class="btn-group visible-xs" role="group" aria-label="...">
+					</div>
+					<div>
+						<div class="col-sm-10">
+							<div class="btn-group" role="group" aria-label="...">
 							  <button class="btn btn-warning damageButton" data-toggle="modal" data-adjustment="damage" data-target="#adjustHpModal"><i class="fa fa-bolt" aria-hidden="true"></i> Damage</button>
 							  <button class="btn btn-info healButton" data-toggle="modal" data-adjustment="heal" data-target="#adjustHpModal"><i class="fa fa-medkit" aria-hidden="true"></i> Heal</button>
 							  <button class="btn btn-success delayButton" onclick=""style="display:none;"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Delay</button>
