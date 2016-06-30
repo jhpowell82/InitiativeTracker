@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Initiative Tracker</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/font-awesome-4.6.3/css/font-awesome.min.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Initiative Tracker</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+              <li><a href="#" data-toggle="collapse" data-target="#navbar" onclick="loadCombat()">Combat</a></li>
+    <li><a href="#" data-toggle="collapse" data-target="#navbar" onclick="loadExploration()">Exploration</a></li>
+    <li><a href="#" data-toggle="collapse" data-target="#navbar" onclick="loadInteraction()">Interaction</a></li>
+            </ul>
+                <form class="navbar-form navbar-right">
+
+                    <button class="btn btn-success" onclick="return false;" data-toggle="modal" data-target="#editEntityModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> New Entity</button>
+                </form>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+                <div class="panel panel-default">
+                    <div class="bs-example" data-example-id="default-media" id="entity-list-div">
+
+                    </div>
+                </div>
+        </div>
+
+
+        <div class="media characterBlock" id="characterBlockToClone" style="display:none;">
+            <div class="pull-left">
+                <img class="media-object" src="" data-holder-rendered="true" style="width: 64px; height: 64px;">
+            </div>
+            <div class="media-body">
+				<div class="row">
+					<div class="col-xs-11 pull-left">
+						<h4 class="media-heading"><a href="#" data-toggle="modal" data-target="#editEntityModal" data-charid="" class="character-name"></a></h4>
+					</div>
+					<div class="col-xs-1 pull-right"><button class="btn btn-danger removeButton" onclick="removeEntity(this)">X</button></div>
+				</div>
+				<div>
+                <p>Init: <span class="character-init"></span></p>
+                <p>HP: <span class="character-hp"></span></p>
+                <p>Effects: <span class="character-effects"></span></p>
+				</div>
+            </div>
+        </div>
+
+		<div class="modal fade" id="editEntityModal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Add / Edit Entity</h4>
+			  </div>
+			  <div class="modal-body">
+				<form>
+				  <div class="form-group">
+					<label for="entityName" class="control-label">Name:</label>
+					<input type="text" class="form-control" id="entityName">
+				  </div>
+				  <div class="form-group">
+					<label for="entityInit" class="control-label">Initiative:</label>
+					<input type="text" class="form-control" id="entityInit">
+				  </div>
+				  <div class="form-group">
+					<label for="entityHP" class="control-label">HP:</label>
+					<input type="text" class="form-control" id="entityHP">
+				  </div>
+				  <div class="form-group">
+					<label for="entityImage" class="control-label">Image URL:</label>
+					<input type="text" class="form-control" id="entityImage">
+				  </div>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<input type="hidden" class="form-control" id="entityGUID">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" id="saveModalChanges">Save changes</button>
+			  </div>
+			</div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+        <hr>
+
+        <footer>
+            <p>&copy; 2016 JHP</p>
+        </footer>
+    </div>
+    <!-- /container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous" ></script>
+    <script src="scripts/scripts.js" ></script>
+</body>
+</html>
