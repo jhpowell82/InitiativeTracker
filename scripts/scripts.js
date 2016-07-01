@@ -237,6 +237,8 @@ function moveToNextTurn()
 		$next.addClass("active")
 	else
 		$(".activeCharacterBlock").first().addClass("active");
+	
+	$(".activeCharacterBlock.active").find(".character-name").focus();
 }
 
 Array.prototype.indexOfField = function (propertyName, value) {
