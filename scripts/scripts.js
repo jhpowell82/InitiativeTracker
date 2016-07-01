@@ -76,7 +76,7 @@ $('#adjustHpModal').on('show.bs.modal', function (event) {
 			
 		
 		$("#adjustHpGUID").val(entityList[position].GUID)
-		$("#hpAdjustment").val(0);
+		$("#hpAdjustment").val('');
 	}
 });
 
@@ -176,7 +176,9 @@ function removeEntity(entity)
 
 function drawEntityList()
 {
-	entityList.sort(function (a,b) { return b.Initiative - a.Initiative})
+	entityList.sort(function (a,b) { 
+		return b.Initiative - a.Initiative 
+	});
 	$("#entity-list-div").empty();
 	// Loop over entity list
 	$.each(entityList, function(i, val) {
@@ -184,31 +186,33 @@ function drawEntityList()
 			return true;
 		$char = $("#characterBlockToClone").clone();
 		
-		$char.find("img").attr("src", val.IMG);
-		$char.find(".character-name").text(val.Name).data("charid", val.GUID);
+		$char.find("img").attr("src", val.IMG).attr("title", val.Class);;
+		if(val.Type == "Friendly")
+			$char.find(".character-name").html('<i class="fa fa-shield" aria-hidden="true"></i> ' + val.Name + ' <i class="fa fa-shield" aria-hidden="true"></i>').data("charid", val.GUID);
+		else
+			$char.find(".character-name").html('<i class="fa fa-drupal" aria-hidden="true"></i> ' + val.Name + ' <i class="fa fa-drupal" aria-hidden="true"></i>').data("charid", val.GUID);
 		$char.find(".character-init").text(val.Initiative);
 		$char.find(".character-hp").text(val.HP);
 		
 		if(val.HP > (val.MaxHP / 2))
 			$char.find(".character-hp").parent().addClass("btn-success");
-		else if(val.HP < (val.MaxHP / 2))
+		else if(val.HP > (val.MaxHP * .25) && val.HP < (val.MaxHP * 75))
 			$char.find(".character-hp").parent().addClass("btn-warning");
 		else
 			$char.find(".character-hp").parent().addClass("btn-danger");
 		
 		$char.find(".character-class").text(val.Class);
 		if(val.Type == "Friendly")
-			$char.find(".character-name").addClass("btn btn-primary btn-lg");
+			$char.find(".character-name").addClass("btn btn-primary");
 		else if(val.Type == "Neutral")
-			$char.find(".character-name").addClass("btn btn-warning btn-lg");
+			$char.find(".character-name").addClass("btn btn-warning");
 		else
-			$char.find(".character-name").addClass("btn btn-danger btn-lg");
+			$char.find(".character-name").addClass("btn btn-danger");
 		
 		
 		$char.find(".removeButton").data("charid", val.GUID);
 		$char.find(".healButton").data("charid", val.GUID);
 		$char.find(".damageButton").data("charid", val.GUID);
-		//btn btn-primary btn-lg
 		
 		var effectsText = ""
 		// update effects
@@ -221,9 +225,19 @@ function drawEntityList()
 		// append to entity list
 		$char.appendTo("#entity-list-div")
 	});
+	$(".activeCharacterBlock").first().addClass("active");
 }
 
-
+function moveToNextTurn()
+{	
+	$curActive = $(".activeCharacterBlock.active")
+	$curActive.removeClass("active")
+	$next = $curActive.closest('.characterBlock').next().find(".activeCharacterBlock");
+	if($next.length)
+		$next.addClass("active")
+	else
+		$(".activeCharacterBlock").first().addClass("active");
+}
 
 Array.prototype.indexOfField = function (propertyName, value) {
         for (var i = 0; i < this.length; i++)
